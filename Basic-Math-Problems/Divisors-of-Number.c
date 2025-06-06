@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void print_divisors_of_num_brute_force(int n) {
-    for (int i=1; i<=n; +=1) {
+    for (int i=1; i<=n; i+=1) {
         if (n%i == 0)
             printf("%d ", i);
     }
