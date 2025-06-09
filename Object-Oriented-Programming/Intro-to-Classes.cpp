@@ -1,41 +1,90 @@
 #include <iostream>
-#include <string>
 
-// We can create a seperate file where class members are declared
-// Like Student.hpp
-class Student{
+// We can create a seperate file where class members are declared like Rectangle.hpp
+class Rectangle{
+    // Data members
+    // By default class members are private
+    // They are hidden 'fields' or 'attributes'
+    private:
+        int length;
+        int breadth;
+    
+    // Member functions
     public:
         // Constructor: Called when an object is created
-        Student();
+        // constructor will not have any return type but
+        // it may or may not take parameters
+        // Default constructor
+        Rectangle();
+
+        // Parameterized constructor
+        // Constructor overloading
+        Rectangle(int l, int b);
+        // I'll be defining it outside, using scope resolution operator
+        // So this is just a prototype or a signature/header of a function.
+    
+        // These two functions perform some operations on data members of an object
+        // We call them as facilitators. 
+        int area();
+        int perimeter();
+
+        // These two functions are accessor(of private members)
+        int getLength() { return length; }
+        int getBreadth() { return breadth; }
+
+        // These two are mutators
+        void setLength(int l) { length = l; }
+        void setBreadth(int b) { length = b; }
+
         // Destructor: Called when an object is destroyed
-        ~Student();
-    private:
-        // By default class members are private
-        // They are hidden 'fields' or 'attributes'
-        std::string name;
+        // Though here we don't need it but inside main function 
+        // we can see the working of it
+        ~Rectangle();
 };
 
-// We can create a seperate file where class members are defined
-// Like Student.cpp. To access class members outside of its scope
-// We must prefix them with 'Class_Name::'
-Student::Student(){
-    std::cout << "Constructor" << std::endl;
+
+// We can create a seperate file where class members are defined/implemented
+// Like Rectangle.cpp. To access class members outside of its scope we must prefix 
+// them with 'Class_Name::'
+Rectangle::Rectangle() {
+    std::cout << "Default constructor is called" << std::endl;
+    length = breadth = 1;
 }
 
-Student::~Student(){
-    std::cout << "Destructor" << std::endl;
+Rectangle::Rectangle(int l, int b) {
+    std::cout << "Parameterized constructor is called" << std::endl;
+    length = l;
+    breadth = b;
+}
+
+int Rectangle::area() {
+    return length * breadth;
+}
+
+int Rectangle::perimeter() {
+    return 2 * (length + breadth);
+}
+
+Rectangle::~Rectangle() {
+    std::cout << "Destructor is called" << std::endl;
 }
 
 
 // Main program: Can be seperated in different file like 'main.cpp'
-// For more detail see: Extra-Chapters/Interface-vs-Implementation.md
+// For more detail see: Interface-vs-Implementation.md
 int main() {
-    // Creating an instance of a 'Student'(i.e an object)
     std::cout << "Constructor must be called after this line" << std::endl;
     {
-        Student john;
-        // john.name = "John Dahl";
-        // We can't access private member of a class by an object. 
+        // Creating an instance/object of a 'Rectangle'
+        Rectangle r(10, 5);
+        std::cout << "Area of the rectangle is: " << r.area() << std::endl;
+        std::cout << "Perimeter of the rectangle is: " << r.perimeter() << std::endl;
+
+        // We can't access private member of a class by an object like 'r.length = 20'
+        r.setLength(20);
+        r.setBreadth(15);
+        std::cout << "Updated length: " << r.getLength() << std::endl;
+        std::cout << "Updated breadth: " << r.getBreadth() << std::endl;
     }
     std::cout << "Destructor must be called before this line" << std::endl;
 
@@ -43,10 +92,10 @@ int main() {
 
     // If we create a pointer of an object the constructor by default called
     // But destructor is not called until we 'freed' the memory.
-    std::cout << "Constructor must be called after this line" << std::endl;
-    Student* sue = new Student;
+    std::cout << "Default constructor must be called after this line" << std::endl;
+    Rectangle* rect = new Rectangle;
     std::cout << "Destructor must be called after this line" << std::endl;
-    delete sue;
-    
+    delete rect;
+
     return 0;
 }
