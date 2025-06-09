@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 // We can create a seperate file where class members are declared like Rectangle.hpp
 class Rectangle{
@@ -97,5 +98,11 @@ int main() {
     std::cout << "Destructor must be called after this line" << std::endl;
     delete rect;
 
+    std::cout << std::endl;
+
+    // But if we call smart pointer instead of raw pointer, it calls 
+    // destructor automatically, since it 'freed' automatically
+    std::unique_ptr<Rectangle> r_unique = std::make_unique<Rectangle>(4,3);
+    std::cout << "Area of the r_unique: " << r_unique->area() << std::endl;
     return 0;
 }
