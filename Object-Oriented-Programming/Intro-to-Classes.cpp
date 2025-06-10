@@ -49,7 +49,8 @@ class Rectangle{
 // them with 'Class_Name::'
 Rectangle::Rectangle() {
     std::cout << "Default constructor is called" << std::endl;
-    length = breadth = 1;
+    length = 0;
+    breadth = 0;
 }
 
 Rectangle::Rectangle(int l, int b) {
