@@ -75,7 +75,6 @@ void Deque::push_back(int element) {
     }
 }
 
-
 void Deque::pop_front() {
     // Check if Queue is empty
     if(front == nullptr)
