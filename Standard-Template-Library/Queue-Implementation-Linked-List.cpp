@@ -50,5 +50,43 @@ void Queue::enqueue(int element) {
 }
 
 void Queue::dequeue() {
-    
+    // Check if Queue is empty or not
+    if(front == nullptr)
+        std::cout << "Queue is empty. Nothing to delete." << std::endl;
+    // Save first Node address to some variable
+    Node* temp = front;
+    // Assign front node to its next node
+    front = front->link;
+    // If it was the one and only node make rear to null.Since if queue has 
+    // one node front and rear will point to the same node. (see enque() above)
+    if(front == nullptr)
+        rear = nullptr;
+    // Delete previous front node
+    delete temp;
+}
+
+void Queue::display() {
+    if(front == nullptr)
+        std::cout << "Queue is empty" << std::endl;
+    Node *next = front;
+    while(next != nullptr) {
+        std::cout << next->data << " ";
+        next = next->link;
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    Queue queue;
+    queue.enqueue(22);
+    queue.enqueue(67);
+    queue.enqueue(34);
+    queue.enqueue(78);
+    queue.enqueue(98); 
+    queue.display();
+    queue.dequeue();
+    queue.dequeue();
+    queue.display();
+
+    return 0;
 }
