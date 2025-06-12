@@ -67,7 +67,7 @@ void Queue::dequeue() {
 
 void Queue::display() {
     if(front == nullptr)
-        std::cout << "Queue is empty" << std::endl;
+        std::cout << "Queue is empty";
     Node *next = front;
     while(next != nullptr) {
         std::cout << next->data << " ";
@@ -84,6 +84,10 @@ int main() {
     queue.enqueue(78);
     queue.enqueue(98); 
     queue.display();
+    queue.dequeue();
+    queue.dequeue();
+    queue.display();
+    queue.dequeue();
     queue.dequeue();
     queue.dequeue();
     queue.display();
