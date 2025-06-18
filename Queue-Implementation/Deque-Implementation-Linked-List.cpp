@@ -6,23 +6,23 @@
 class Node {
 public:
     int data;
-    Node *prev;
-    Node *next;
+    Node* prev;
+    Node* next;
     Node(int data);
 };
 
 // Node constructor
 Node::Node(int data) {
     this->data = data;
-    prev = nullptr; 
+    prev = nullptr;
     next = nullptr;
 }
 
 // Deque class
 class Deque {
 private:
-    Node *front;
-    Node *rear;
+    Node* front;
+    Node* rear;
 public:
     Deque();
     void push_front(int element);
@@ -46,7 +46,7 @@ void Deque::push_front(int element) {
         newNode->data = element;
         newNode->next = front;
         // Check if there is any node before in the queue
-        if(front == nullptr)
+        if (front == nullptr)
             // Then rear will be pointing to the new node also
             rear = newNode;
         else
@@ -66,7 +66,7 @@ void Deque::push_back(int element) {
         newNode->prev = rear;
         newNode->next = nullptr;
         // Check if there is a node in queue or not
-        if(front == nullptr)
+        if (front == nullptr)
             // Then front will be pointing to the new node
             front = newNode;
         else
@@ -77,11 +77,11 @@ void Deque::push_back(int element) {
 
 void Deque::pop_front() {
     // Check if Queue is empty
-    if(front == nullptr)
+    if (front == nullptr)
         std::cout << "Queue is empty, nothing to delete." << std::endl;
     Node* temp = front;
     front = front->next;
-    if(front == nullptr)    // It's the last element in queue
+    if (front == nullptr)    // It's the last element in queue
         rear = nullptr;     // else rear will be dangling
     else
         temp->next->prev = nullptr;
@@ -90,26 +90,26 @@ void Deque::pop_front() {
 
 void Deque::pop_back() {
     // Check if Queue is empty
-    if(front == nullptr)
+    if (front == nullptr)
         std::cout << "Queue is empty, nothing to delete." << std::endl;
     Node* temp = rear;
     rear = rear->prev;
-    if(rear == nullptr)      // It's the last element in queue
+    if (rear == nullptr)      // It's the last element in queue
         front = nullptr;     // else front will be dangling
-    else    
+    else
         temp->prev->next = nullptr;
     delete temp;
 }
 
 void Deque::display() {
-    if(front == nullptr)
+    if (front == nullptr)
         std::cout << "Queue is empty";
-    Node *temp = front;
-    while(temp != nullptr) {
+    Node* temp = front;
+    while (temp != nullptr) {
         std::cout << temp->data << " ";
         temp = temp->next;
     }
-    std::cout << std::endl; 
+    std::cout << std::endl;
 }
 
 

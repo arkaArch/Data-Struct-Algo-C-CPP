@@ -47,7 +47,7 @@ int main() {
     tail_recursive(5);
     printf("\n");
     tail_recursive_to_loop(5);
-    
+
     head_recursive(5);
     printf("\n");
     head_recursive_to_loop(5);

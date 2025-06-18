@@ -3,14 +3,14 @@
 
 struct Node {
     int data;
-    struct Node *link;
+    struct Node* link;
 } *top = NULL;
 
 void push(int element) {
     // stack is full when heap is full
     // That is when we're unable to create a new node 
-    struct Node *node = (struct Node *)malloc(sizeof(struct Node));
-    if(node == NULL) {
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    if (node == NULL) {
         printf("Stack Overflow.\n");
         return;
     }
@@ -21,28 +21,28 @@ void push(int element) {
 
 void pop() {
     // Stack is empty when top is NULL
-    if(top == NULL) {
+    if (top == NULL) {
         printf("Stack Underflow\n");
         return;
     }
     // We have to delete the node
-    struct Node *temp = top;
+    struct Node* temp = top;
     printf("Popped element %d\n", temp->data);
     top = temp->link;
     free(temp);
 }
 
 void display() {
-    if(top == NULL) {
+    if (top == NULL) {
         printf("Stack is empty");
         return;
     }
     // Print from peek
-    struct Node *current = top;
+    struct Node* current = top;
     do {
         printf("%d ", current->data);
         current = current->link;
-    } while(current != NULL);
+    } while (current != NULL);
     printf("\n");
 }
 

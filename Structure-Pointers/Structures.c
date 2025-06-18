@@ -11,7 +11,7 @@ int main() {
     r1.length = 5;
     r1.breadth = 6;
 
-    struct Rectangle r2 = {10, 15};
+    struct Rectangle r2 = { 10, 15 };
     printf("%d\n", sizeof(r2));
     printf("Area of rectangle r is: %d\n", r2.length * r2.breadth);
     return 0;

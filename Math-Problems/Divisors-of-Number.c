@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 void print_divisors_of_num_brute_force(int n) {
-    for (int i=1; i<=n; i+=1) {
-        if (n%i == 0)
+    for (int i = 1; i <= n; i += 1) {
+        if (n % i == 0)
             printf("%d ", i);
     }
     printf("\n");
@@ -22,7 +22,7 @@ void print_divisors_of_num_optimal(int n) {
             x*x <= n
             x <= square root of n */
 
-    for (int i=1; i*i<=n; i++) {
+    for (int i = 1; i * i <= n; i++) {
         /* (i*i <= n) ==> (i <= Math.sqrt(n)) */
         /* This will print the divisors in pair form / unsorted order */
         if (n % i == 0) {

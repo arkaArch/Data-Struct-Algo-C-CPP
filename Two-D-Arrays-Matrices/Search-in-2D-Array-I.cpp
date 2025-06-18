@@ -15,15 +15,15 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
     // then the element lies in matrix[i/col][i%col].
 
     int row = matrix.size();
-    int col = matrix[0].size();
+    int col = matrix [0].size();
 
     int low = 0, high = row * col - 1;
-    while(low <= high) {
+    while (low <= high) {
         int mid = high + (low - high) / 2;
-        int element = matrix[mid / col][mid % col];
-        if(element == target)
+        int element = matrix [mid / col][mid % col];
+        if (element == target)
             return true;
-        else if(element > target)
+        else if (element > target)
             high = mid - 1;
         else
             low = mid + 1;
@@ -43,4 +43,4 @@ int main() {
 
     return 0;
 }
-         
+

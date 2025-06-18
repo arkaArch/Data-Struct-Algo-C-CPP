@@ -10,12 +10,12 @@
 void list_stl() {
     // Operations like, size(), empty(), push_front(), push_back(), 
     // pop_front(), pop_back(), front(), back() are same as above
-    std::list<int> l = {4, 3, 5, 2};
+    std::list<int> l = { 4, 3, 5, 2 };
     // Inserting an element at index 3
     auto it = l.begin();
     advance(it, 3);
     l.insert(it, 9);
-    for (auto i : l) 
+    for (auto i : l)
         std::cout << i << " ";
     std::cout << std::endl;
 
@@ -39,8 +39,8 @@ void set_stl() {
     s.insert(5); s.insert(8); s.insert(1); s.insert(4); s.insert(2);
     s.insert(5); s.insert(8); s.insert(1); s.insert(4); s.insert(2);
     s.insert(5); s.insert(8); s.insert(1); s.insert(4); s.insert(2);
-    print(s); 
-    
+    print(s);
+
     // We can delete values from set by value and iterator
     s.erase(8);
     s.erase(s.begin());
@@ -52,7 +52,7 @@ void set_stl() {
     // find() method in set returns the iterator
     std::set<int>::iterator it = s.find(4);
     std::cout << "Values >= 4 present in the set: ";
-    while(it != s.end()) {
+    while (it != s.end()) {
         std::cout << *it << " ";
         it++;
     } std::cout << std::endl;
@@ -64,16 +64,16 @@ void set_stl() {
 // Maps are associative containers that store data in the form of key value pairs 
 // sorted on the basis of keys.
 void map_stl() {
-    std::map<std::string, std::string> fighter_jets {{"Mirage", "France"}, {"Sukhoi", "Russia"}};
-    fighter_jets.insert({"McDonnell", "America"});
-    for(auto jet:fighter_jets)
+    std::map<std::string, std::string> fighter_jets { {"Mirage", "France"}, {"Sukhoi", "Russia"} };
+    fighter_jets.insert({ "McDonnell", "America" });
+    for (auto jet : fighter_jets)
         std::cout << jet.first << " made in " << jet.second << std::endl;
     // So it printed in the basis of keys - 1. Mc..., 2. Mi..., 3. Su...
     fighter_jets.erase("McDonnell");
-    fighter_jets["Saab-JAS-39-Gripen"] = "Sweden";
+    fighter_jets ["Saab-JAS-39-Gripen"] = "Sweden";
 
     std::cout << "\n------->>>>>****<<<<<-------\n" << std::endl;
-    for(auto jet:fighter_jets)
+    for (auto jet : fighter_jets)
         std::cout << jet.first << " made in " << jet.second << std::endl;
 }
 

@@ -2,12 +2,12 @@
 #include <memory>   // shared_ptr
 
 // Some User Defined Type
-class UDT{
-    public:
-        // Constructor (called on creation)
-        UDT() { std::cout << "UDT Created" << std::endl; }
-        // Destructor (Called on destruction) 
-        ~UDT() { std::cout << "UDT Destroyed" << std::endl; }
+class UDT {
+public:
+    // Constructor (called on creation)
+    UDT() { std::cout << "UDT Created" << std::endl; }
+    // Destructor (Called on destruction) 
+    ~UDT() { std::cout << "UDT Destroyed" << std::endl; }
 };
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
         // It tracks how many things pointing to it, and this is called the reference 
         // counter. Java has the reference counting, so you don't have to manage memory
         // manually.
-        
+
         // Creating shared pointer
         // std::shared_ptr<UDT> ptr1 = std::shared_ptr<UDT>(new UDT);
         // Using factory function, to write the above line

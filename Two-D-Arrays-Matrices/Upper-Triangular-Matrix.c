@@ -1,6 +1,6 @@
-/* 
-Upper Triangular Matrix: 
-Square matrix, M[row, col] =! 0, if row <= col 
+/*
+Upper Triangular Matrix:
+Square matrix, M[row, col] =! 0, if row <= col
 and m[row, col] = 0 if row > col
 
 a b c d e
@@ -33,11 +33,11 @@ So, implementing column-major mapping is easy
 #include <stdlib.h>
 
 void main() {
-    int *upper_triangular_matrix, row, choice;
+    int* upper_triangular_matrix, row, choice;
     printf("Enter the row/column number of the matrix: ");
     scanf("%d", &row);
     int total_element = (row * (row + 1)) / 2;
-    upper_triangular_matrix = (int *)malloc(sizeof(int) * total_element);
+    upper_triangular_matrix = (int*)malloc(sizeof(int) * total_element);
 
     while (1) {
         printf("1. Create matrix\n");
@@ -50,54 +50,54 @@ void main() {
         scanf("%d", &choice);
 
         switch (choice) {
-        case 1:
-        // Create matrix
-            for (int i = 0; i < total_element; i++) {
-                printf("Enter the non zero element: ");
-                scanf("%d", &upper_triangular_matrix[i]);
-            }
-            break;
-        
-        case 2:
-        // Set values in matrix
-            int r, c, element;
-            printf("Enter row column: ");
-            scanf("%d %d",&r, &c);
-            printf("Enter the element: ");
-            scanf("%d", &element);
-            if (r <= c)
-                upper_triangular_matrix[((c*(c-1))/2) + (r-1)] = element;
-            break;
-        
-        case 3:
-        // Get values from matrix
-            printf("Enter row and column: ");
-            scanf("%d %d", &r, &c);
-            if (r <= c)
-                printf("%d \n", upper_triangular_matrix[((c*(c-1))/2) + (r-1)]);
-            else
-                printf("0 \n");
-            break;
-        
-        case 4:
-        // Display matrix
-            int k = 0;   // Index for the array, which stores non-zero elements
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < row; j++) {
-                    if (i <= j)
-                        printf("%d ", upper_triangular_matrix[k++]);
-                    else
-                        printf("0 ");
+            case 1:
+                // Create matrix
+                for (int i = 0; i < total_element; i++) {
+                    printf("Enter the non zero element: ");
+                    scanf("%d", &upper_triangular_matrix [i]);
                 }
-                printf("\n");
-            }
-            break;
+                break;
 
-        case 5:
-        // Exit from the program
-            exit(1);
-        default:
-            printf("Wrong input \n");
+            case 2:
+                // Set values in matrix
+                int r, c, element;
+                printf("Enter row column: ");
+                scanf("%d %d", &r, &c);
+                printf("Enter the element: ");
+                scanf("%d", &element);
+                if (r <= c)
+                    upper_triangular_matrix [((c * (c - 1)) / 2) + (r - 1)] = element;
+                break;
+
+            case 3:
+                // Get values from matrix
+                printf("Enter row and column: ");
+                scanf("%d %d", &r, &c);
+                if (r <= c)
+                    printf("%d \n", upper_triangular_matrix [((c * (c - 1)) / 2) + (r - 1)]);
+                else
+                    printf("0 \n");
+                break;
+
+            case 4:
+                // Display matrix
+                int k = 0;   // Index for the array, which stores non-zero elements
+                for (int i = 0; i < row; i++) {
+                    for (int j = 0; j < row; j++) {
+                        if (i <= j)
+                            printf("%d ", upper_triangular_matrix [k++]);
+                        else
+                            printf("0 ");
+                    }
+                    printf("\n");
+                }
+                break;
+
+            case 5:
+                // Exit from the program
+                exit(1);
+            default:
+                printf("Wrong input \n");
         }
     }
 }

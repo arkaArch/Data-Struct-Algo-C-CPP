@@ -5,7 +5,7 @@
 template <class T>
 class Queue {
 private:
-    T *arr;
+    T* arr;
     // Front element pointer in a queue
     int front;
     // Number of element in a queue
@@ -22,10 +22,10 @@ public:
     void display();                  // Display the queue
 };
 
-template <class T> 
+template <class T>
 Queue<T>::Queue(int capacity) {
     // Create an array of size capacity
-    arr = new T[capacity];
+    arr = new T [capacity];
     this->capacity = capacity;
     size = 0;
     front = 0;
@@ -33,27 +33,27 @@ Queue<T>::Queue(int capacity) {
 
 template <class T>
 std::optional<T> Queue<T>::getFront() {
-    if(size == 0) {
+    if (size == 0) {
         std::cout << "Queue is empty" << std::endl;
         return std::nullopt;    // Return nothing
     }
-    return arr[front];
+    return arr [front];
 }
 
 template <class T>
 std::optional<T> Queue<T>::getRear() {
-    if(size == 0) {
+    if (size == 0) {
         std::cout << "Queue is empty" << std::endl;
         return std::nullopt;    // Return nothing
     }
     int rear = (front + size - 1) % capacity;
-    return arr[rear];
+    return arr [rear];
 }
 
 template <class T>
 void Queue<T>::enqueue(T element) {
     // Check queue is full or not
-    if(size == capacity) {
+    if (size == capacity) {
         std::cout << "Queue is full." << std::endl;
         return;
     }
@@ -62,20 +62,20 @@ void Queue<T>::enqueue(T element) {
     // int rear = (front + size - 1) % capacity;
     // rear = (rear + 1) % capacity ;
     int rear = (front + size) % capacity;
-    arr[rear] = element;
-    size ++;
+    arr [rear] = element;
+    size++;
 }
 
 
 template <class T>
 std::optional<T> Queue<T>::dequeue() {
     // Check if the queue is empty
-    if(size == 0) {
+    if (size == 0) {
         std::cout << "Queue is empty. Nothing to delete" << std::endl;
         return std::nullopt;
     }
     // Element to be deleted
-    T element = arr[front];
+    T element = arr [front];
     // Increase the front index pointer by one
     front = (front + 1) % capacity;
     // Also derease the size
@@ -87,19 +87,19 @@ std::optional<T> Queue<T>::dequeue() {
 template <class T>
 void Queue<T>::display() {
     int rear = (front + size - 1) % capacity;
-    if(size == 0) {
+    if (size == 0) {
         std::cout << "Queue is empty" << std::endl;
     }
-    else if(front < rear) {
-        for(int i = front; i <= rear; i++)
-            std::cout << arr[i] << " ";
+    else if (front < rear) {
+        for (int i = front; i <= rear; i++)
+            std::cout << arr [i] << " ";
         std::cout << std::endl;
     }
     else {    // rear < front
-        for(int i = front; i < capacity; i++)
-            std::cout << arr[i] << " "; 
-        for(int i = 0; i <= rear; i++)
-            std::cout << arr[i] << " "; 
+        for (int i = front; i < capacity; i++)
+            std::cout << arr [i] << " ";
+        for (int i = 0; i <= rear; i++)
+            std::cout << arr [i] << " ";
         std::cout << std::endl;
     }
 
@@ -119,6 +119,6 @@ int main() {
     queue.enqueue(78.23);
     queue.enqueue(98.33);   // This should print "queue full" msg
     queue.display();
-    
+
     return 0;
 }

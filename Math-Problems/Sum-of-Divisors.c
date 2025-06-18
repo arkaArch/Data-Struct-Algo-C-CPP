@@ -18,13 +18,13 @@ Solve this in O(sqrt(n)).
 
 int sum_of_all_divisors(int n) {
     int sum_of_all_divisors_val = 0;
-    for (int k=1; k<=n; k++) {
+    for (int k = 1; k <= n; k++) {
         /* For single number  */
         int sum_of_divisors = 0;
-        for (int i=1; i*i <= k; i++) {
-            if (k%i == 0) {
+        for (int i = 1; i * i <= k; i++) {
+            if (k % i == 0) {
                 sum_of_divisors += i;
-                if (k/i != i)
+                if (k / i != i)
                     sum_of_divisors += k / i;
             }
         }

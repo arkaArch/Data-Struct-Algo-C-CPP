@@ -2,45 +2,45 @@
 #include <memory>
 
 // We can create a seperate file where class members are declared like Rectangle.hpp
-class Rectangle{
+class Rectangle {
     // Data members
     // By default class members are private
     // They are hidden 'fields' or 'attributes'
-    private:
-        int length;
-        int breadth;
-    
+private:
+    int length;
+    int breadth;
+
     // Member functions
-    public:
-        // Constructor: Called when an object is created
-        // constructor will not have any return type but
-        // it may or may not take parameters
-        // Default constructor
-        Rectangle();
+public:
+    // Constructor: Called when an object is created
+    // constructor will not have any return type but
+    // it may or may not take parameters
+    // Default constructor
+    Rectangle();
 
-        // Parameterized constructor
-        // Constructor overloading
-        Rectangle(int l, int b);
-        // I'll be defining it outside, using scope resolution operator
-        // So this is just a prototype or a signature/header of a function.
-    
-        // These two functions perform some operations on data members of an object
-        // We call them as facilitators. 
-        int area();
-        int perimeter();
+    // Parameterized constructor
+    // Constructor overloading
+    Rectangle(int l, int b);
+    // I'll be defining it outside, using scope resolution operator
+    // So this is just a prototype or a signature/header of a function.
 
-        // These two functions are accessor(of private members)
-        int getLength() { return length; }
-        int getBreadth() { return breadth; }
+    // These two functions perform some operations on data members of an object
+    // We call them as facilitators. 
+    int area();
+    int perimeter();
 
-        // These two are mutators
-        void setLength(int l) { length = l; }
-        void setBreadth(int b) { length = b; }
+    // These two functions are accessor(of private members)
+    int getLength() { return length; }
+    int getBreadth() { return breadth; }
 
-        // Destructor: Called when an object is destroyed
-        // Though here we don't need it but inside main function 
-        // we can see the working of it
-        ~Rectangle();
+    // These two are mutators
+    void setLength(int l) { length = l; }
+    void setBreadth(int b) { length = b; }
+
+    // Destructor: Called when an object is destroyed
+    // Though here we don't need it but inside main function 
+    // we can see the working of it
+    ~Rectangle();
 };
 
 
@@ -103,7 +103,7 @@ int main() {
 
     // But if we call smart pointer instead of raw pointer, it calls 
     // destructor automatically, since it 'freed' automatically
-    std::unique_ptr<Rectangle> r_unique = std::make_unique<Rectangle>(4,3);
+    std::unique_ptr<Rectangle> r_unique = std::make_unique<Rectangle>(4, 3);
     std::cout << "Area of the r_unique: " << r_unique->area() << std::endl;
     return 0;
 }

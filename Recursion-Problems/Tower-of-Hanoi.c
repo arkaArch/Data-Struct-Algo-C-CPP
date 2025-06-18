@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void print_move(char *tower_A, char *tower_B) {
+void print_move(char* tower_A, char* tower_B) {
     printf("Move from %s to %s. \n", tower_A, tower_B);
 }
 
 void tower_of_hanoi(int no_of_disks, char* tower_A, char* tower_B, char* tower_T) {
-    if(no_of_disks == 1)
+    if (no_of_disks == 1)
         print_move(tower_A, tower_B);
     else {
         // Move (n-1) disks from tower_A to tower_T
@@ -25,12 +25,12 @@ int main() {
 
 /* Output:
 
-Move from tower_a to tower_b. 
-Move from tower_a to tower_temp. 
-Move from tower_b to tower_temp. 
-Move from tower_a to tower_b. 
-Move from tower_temp to tower_a. 
-Move from tower_temp to tower_b. 
+Move from tower_a to tower_b.
+Move from tower_a to tower_temp.
+Move from tower_b to tower_temp.
+Move from tower_a to tower_b.
+Move from tower_temp to tower_a.
+Move from tower_temp to tower_b.
 Move from tower_a to tower_b.
 
 */

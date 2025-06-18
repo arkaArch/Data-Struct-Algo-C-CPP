@@ -1,24 +1,24 @@
 #include <iostream>
 #include <memory>
 
-class UDT{
-    public:
-        UDT() { std::cout << "UDT Created" << std::endl; }
-        ~UDT() { std::cout << "UDT Destroyed" << std::endl; }
+class UDT {
+public:
+    UDT() { std::cout << "UDT Created" << std::endl; }
+    ~UDT() { std::cout << "UDT Destroyed" << std::endl; }
 };
 
 int main() {
 
-/*
-    int* ptr1 = new int[5];
-    for(int i = 0; i < 5; i++)
-        ptr1[i] = i*2;
-    int *ptr2 = ptr1;
-    delete[] ptr1;
-    
-    // Now ptr2 become dangling pointer and it returns some garbage value.
-    std::cout << "Value of ptr2[2]: " << ptr2[2] << std::endl;
-*/
+    /*
+        int* ptr1 = new int[5];
+        for(int i = 0; i < 5; i++)
+            ptr1[i] = i*2;
+        int *ptr2 = ptr1;
+        delete[] ptr1;
+
+        // Now ptr2 become dangling pointer and it returns some garbage value.
+        std::cout << "Value of ptr2[2]: " << ptr2[2] << std::endl;
+    */
 
     // Now here comes weak_ptr, it's a non-owning pointer unlike unique_pointer
     // And it doesn't increase the reference count unlike shared pointer.

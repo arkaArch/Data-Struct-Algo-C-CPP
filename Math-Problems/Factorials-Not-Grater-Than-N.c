@@ -15,7 +15,7 @@ where ‘m’ is the number of factorial numbers which are less than or equal to
 
 void print_factorial_numbers(int n) {
     int fact = 1;
-    for (int i=1; i<=n; i++) {
+    for (int i = 1; i <= n; i++) {
         fact *= i;
         if (fact <= n) {
             printf("%d ", fact);

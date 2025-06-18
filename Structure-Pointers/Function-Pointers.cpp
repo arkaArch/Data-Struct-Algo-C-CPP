@@ -9,7 +9,7 @@ int multiply(int x, int y) { return x * y; }
 
 int main() {
     int x, y;
-    std:: cout << "Enter two integers: ";
+    std::cout << "Enter two integers: ";
     std::cin >> x >> y;
 
     // Function pointer
@@ -20,11 +20,11 @@ int main() {
     char op;
     std::cout << "Enter a for add and m for multiplication: ";
     std::cin >> op;
-    
-    if(op == 'a') operation = add; 
-    else if(op == 'm') operation = multiply;
-    else std::cout << "Wrong Input." << std::endl; 
-    
+
+    if (op == 'a') operation = add;
+    else if (op == 'm') operation = multiply;
+    else std::cout << "Wrong Input." << std::endl;
+
     std::cout << "Result: " << operation(x, y) << std::endl;
 
     return 0;

@@ -5,8 +5,8 @@
 bool isPalindrome(char str[], int first_index, int last_index) {
     if (first_index >= last_index)
         return true;
-    return (str[last_index] == str[first_index]) &&
-           isPalindrome(str, first_index + 1, last_index - 1);
+    return (str [last_index] == str [first_index]) &&
+        isPalindrome(str, first_index + 1, last_index - 1);
 }
 
 int main() {

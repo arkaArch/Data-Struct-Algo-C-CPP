@@ -9,8 +9,8 @@ void find_character_case(char ch) {
     (ch >= 65 && ch <= 90)
         ? printf("Upper case\n")
         : (ch >= 97 && ch <= 122)
-            ? printf("Lower case\n")
-            : printf("Not a character\n");
+        ? printf("Lower case\n")
+        : printf("Not a character\n");
 }
 
 void sum_of_even_odd(int n) {
@@ -20,7 +20,7 @@ void sum_of_even_odd(int n) {
         if (lastDigit % 2 == 0)
             evenSum += lastDigit;
         else
-            oddSum += lastDigit;        
+            oddSum += lastDigit;
         // Remove the last digit 
         n /= 10;
     }

@@ -18,7 +18,7 @@ argument. So changing the value inside the function also change the original val
 parameters passed as an arguments does not create its own copy, it refers to the original value so changes
 made inside function affect the original value. */
 
-void passbyReferenece(int *a, int *b) {
+void passbyReferenece(int* a, int* b) {
     int temp;
     temp = *a;
     *a = *b;

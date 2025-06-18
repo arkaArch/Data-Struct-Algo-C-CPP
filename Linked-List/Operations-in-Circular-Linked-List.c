@@ -3,7 +3,7 @@
 
 struct Node {
     int data;
-    struct Node *link;
+    struct Node* link;
 };
 
 void swap(int* x, int* y) {
@@ -12,36 +12,36 @@ void swap(int* x, int* y) {
     *y = temp;
 }
 
-int number_of_nodes(struct Node *head) {
-    if(head == NULL)
+int number_of_nodes(struct Node* head) {
+    if (head == NULL)
         return 0;
 
     int count = 0;
-    struct Node *current = head;
+    struct Node* current = head;
     do {
-        count ++;
+        count++;
         current = current->link;
-    } while(current != head);
+    } while (current != head);
     return count;
 }
 
-void traverse_list(struct Node *head) {
-    if(head == NULL) {
+void traverse_list(struct Node* head) {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    struct Node *current = head;
+    struct Node* current = head;
     do {
         printf("%d ", current->data);
         current = current->link;
-    } while(current != head);
+    } while (current != head);
     printf("\n");
 }
 
-struct Node *insert_at_begining(struct Node *head, int value) {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+struct Node* insert_at_begining(struct Node* head, int value) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = value;
-    if(head == NULL) {
+    if (head == NULL) {
         temp->link = temp;
         return temp;
     }
@@ -49,18 +49,18 @@ struct Node *insert_at_begining(struct Node *head, int value) {
     temp->link = head;
 
     /* Give the value of temp to the link part of last node */
-    struct Node *current = head;
-    while(current->link != head)
+    struct Node* current = head;
+    while (current->link != head)
         current = current->link;
     current->link = temp;
     return temp;
     /* Time complexity: O(N) */
 }
 
-struct Node *insert_at_begining_efficient(struct Node *head, int value) {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+struct Node* insert_at_begining_efficient(struct Node* head, int value) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = value;
-    if(head == NULL) {
+    if (head == NULL) {
         temp->link = temp;
         return temp;
     }
@@ -74,31 +74,31 @@ struct Node *insert_at_begining_efficient(struct Node *head, int value) {
     /* Time complexity: O(1) */
 }
 
-struct Node *insert_at_end(struct Node *head, int value) {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+struct Node* insert_at_end(struct Node* head, int value) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = value;
-    if(head == NULL) {
+    if (head == NULL) {
         temp->link = temp;
         return temp;
     }
     temp->link = head;
     /* Go to last Node & replace link path with temp address */
-    struct Node *current = head;
-    while(current->link != head)
+    struct Node* current = head;
+    while (current->link != head)
         current = current->link;
     current->link = temp;
     return head;
     /* Here time complexity is O(n) */
 }
 
-struct Node *insert_at_end_efficient(struct Node *head, int value) {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+struct Node* insert_at_end_efficient(struct Node* head, int value) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = value;
-    if(head == NULL) {
+    if (head == NULL) {
         temp->link = temp;
         return temp;
     }
-    /* Here the idea is to insert the node after first node, and swap their data,  
+    /* Here the idea is to insert the node after first node, and swap their data,
     then pointing head to temp, i.e return temp */
     temp->link = head->link;
     head->link = temp;
@@ -107,17 +107,17 @@ struct Node *insert_at_end_efficient(struct Node *head, int value) {
     /* Thus we reduce our Time complexity to O(1) */
 }
 
-struct Node *delete_first_node(struct Node *head) {
-    if(head == NULL)
+struct Node* delete_first_node(struct Node* head) {
+    if (head == NULL)
         return NULL;
     /* If there is a one element delete this and return NULL */
-    if(head->link == head) {
+    if (head->link == head) {
         free(head);
         return NULL;
     }
 
-    struct Node *current = head;
-    while(current->link != head)
+    struct Node* current = head;
+    while (current->link != head)
         current = current->link;
     /* Replace it's link part with address of 2'nd Node(head->link) */
     current->link = head->link;
@@ -126,40 +126,40 @@ struct Node *delete_first_node(struct Node *head) {
     /* Here time complexity is O(n) */
 }
 
-struct Node *delete_first_node_efficient(struct Node *head) {
+struct Node* delete_first_node_efficient(struct Node* head) {
     /* Here the idea is to replace data and link of fist node with second node, then delete second node
     Thus we reduce our Time complexity to O(1) */
-    if(head == NULL)
+    if (head == NULL)
         return NULL;
     /* If there is a one element delete this and return NULL */
-    if(head->link == head) {
+    if (head->link == head) {
         free(head);
         return NULL;
     }
 
-    struct Node *temp = head->link;
+    struct Node* temp = head->link;
     head->data = head->link->data;
     head->link = head->link->link;
     free(temp);
     return head;
 }
 
-struct Node *delete_k_th_node(struct Node *head, int k) {
-    if(head == NULL)
+struct Node* delete_k_th_node(struct Node* head, int k) {
+    if (head == NULL)
         return NULL;
-    if(k < 1 || k > number_of_nodes(head)) {
+    if (k < 1 || k > number_of_nodes(head)) {
         printf("Position can't be zero, negative or grater than number of nodes");
         return head;
     }
-    if(k == 1) {
+    if (k == 1) {
         /* Delete first node */
         return delete_first_node_efficient(head);
     }
-    struct Node *current = head;
-    for(int i = 1; i < k-1; i++) {
+    struct Node* current = head;
+    for (int i = 1; i < k - 1; i++) {
         current = current->link;
     }
-    struct Node *temp = current->link;
+    struct Node* temp = current->link;
     current->link = current->link->link;
     free(temp);
     return head;
@@ -167,19 +167,19 @@ struct Node *delete_k_th_node(struct Node *head, int k) {
 
 int main() {
     /* Create a list */
-    struct Node *first = (struct Node *)malloc(sizeof(struct Node));
+    struct Node* first = (struct Node*)malloc(sizeof(struct Node));
     first->data = 10;
-    first->link = (struct Node *)malloc(sizeof(struct Node));
+    first->link = (struct Node*)malloc(sizeof(struct Node));
     first->link->data = 5;
-    first->link->link = (struct Node *)malloc(sizeof(struct Node));
+    first->link->link = (struct Node*)malloc(sizeof(struct Node));
     first->link->link->data = 20;
-    first->link->link->link = (struct Node *)malloc(sizeof(struct Node));
+    first->link->link->link = (struct Node*)malloc(sizeof(struct Node));
     first->link->link->link->data = 15;
     first->link->link->link->link = first;
 
     int choice, value;
-    
-    while(1) {
+
+    while (1) {
         printf("1. Display list.\n");
         printf("2. Number of nodes in the list.\n");
         printf("3. Insert at the begining of the list.\n");
@@ -190,7 +190,7 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        switch(choice) {
+        switch (choice) {
             case 1:
                 traverse_list(first);
                 break;

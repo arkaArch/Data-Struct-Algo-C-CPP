@@ -10,7 +10,7 @@ using namespace std;
  * - s = "dababc", remove "abc" starting at index 3, so s = "dab".
 */
 string removeOccurrences(string s, string part) {
-    while(s.find(part) != -1)
+    while (s.find(part) != -1)
         s.erase(s.find(part), part.length());
     return s;
 }

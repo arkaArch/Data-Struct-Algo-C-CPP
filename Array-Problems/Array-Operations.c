@@ -3,24 +3,24 @@
 #include <stdbool.h>
 
 struct Array {
-    int *A;     // Adress of the Array
+    int* A;     // Adress of the Array
     int size;   // Size of the Array
     int length; // Length of the Array/No of element
 };
 
-int sum(struct Array *a);
-int avg(struct Array *a);
-void swap(int *x, int *y);
-bool is_sorted(struct Array *a);
-void display(struct Array *a);
-void increase_size(struct Array *a, int increase_size_by);
-void append(struct Array *a, int element);
-void insert(struct Array *a, int position, int element);
-void delete(struct Array *a, int position);
-int linear_search(struct Array *a, int key);
-int binary_search(struct Array *a, int key);
-void reverse_array(struct Array *a);
-void rearrange_negatives(struct Array *a);
+int sum(struct Array* a);
+int avg(struct Array* a);
+void swap(int* x, int* y);
+bool is_sorted(struct Array* a);
+void display(struct Array* a);
+void increase_size(struct Array* a, int increase_size_by);
+void append(struct Array* a, int element);
+void insert(struct Array* a, int position, int element);
+void delete(struct Array* a, int position);
+int linear_search(struct Array* a, int key);
+int binary_search(struct Array* a, int key);
+void reverse_array(struct Array* a);
+void rearrange_negatives(struct Array* a);
 
 
 /* ==================== START MAIN FUNCTION ==================== */
@@ -28,12 +28,12 @@ int main() {
     struct Array arr;
     printf("Enter the size of the array: ");
     scanf("%d", &arr.size);
-    arr.A = (int *)malloc(sizeof(int) * arr.size);
+    arr.A = (int*)malloc(sizeof(int) * arr.size);
     printf("How many number you want to insert: ");
     scanf("%d", &arr.length);
     for (int i = 0; i < arr.length; i++) {
         printf("Enter the element %d: ", (i + 1));
-        scanf("%d", &arr.A[i]);
+        scanf("%d", &arr.A [i]);
     }
 
     int choice, element, position, increase_size_by;
@@ -108,48 +108,48 @@ int main() {
 }
 /* ==================== END OF MAIN FUNCTION ==================== */
 
-void display(struct Array *a) {
+void display(struct Array* a) {
     printf("{ ");
     for (int i = 0; i < a->length; i++) {
         if (i != a->length - 1)
-            printf("%d, ", a->A[i]);
+            printf("%d, ", a->A [i]);
         else
-            printf("%d", a->A[i]);
+            printf("%d", a->A [i]);
     }
     printf(" }\n");
 }
 
-int sum(struct Array *a) {
+int sum(struct Array* a) {
     int sum = 0;
     for (int i = 0; i < a->length; i++)
-        sum += a->A[i];
+        sum += a->A [i];
     return sum;
 }
 
-int avg(struct Array *a) {
+int avg(struct Array* a) {
     return sum(a) / a->length;
 }
 
-bool is_sorted(struct Array *a) {
+bool is_sorted(struct Array* a) {
     for (int i = 0; i < (a->length - 1); i++)
-        if (a->A[i] > a->A[i + 1])
+        if (a->A [i] > a->A [i + 1])
             return false;
     return true;
 }
 
-void swap(int *x, int *y) {
+void swap(int* x, int* y) {
     int temp = *x;
     *x = *y;
     *y = temp;
 }
 
-void increase_size(struct Array *a, int increase_size_by) {
+void increase_size(struct Array* a, int increase_size_by) {
     a->size += increase_size_by;
     // First create a new array of increased size
-    int *new_arr = (int *)malloc(sizeof(int) * a->size);
+    int* new_arr = (int*)malloc(sizeof(int) * a->size);
     // Copy old array to the new array
     for (int i = 0; i < a->length; i++)
-        new_arr[i] = a->A[i];
+        new_arr [i] = a->A [i];
     // Delete old array
     free(a->A);
     // Copy the reference of the new_array to old_arr
@@ -158,16 +158,16 @@ void increase_size(struct Array *a, int increase_size_by) {
     new_arr = NULL;
 }
 
-void append(struct Array *a, int element) {
+void append(struct Array* a, int element) {
     if (a->size <= a->length) {
         printf("Insertion is not possible(Array is already full) \n");
         return;
     }
     // Store the element and increase the length by 1
-    a->A[a->length++] = element;
+    a->A [a->length++] = element;
 }
 
-void insert(struct Array *a, int position, int element) {
+void insert(struct Array* a, int position, int element) {
     // Check if there is an empty space in the array
     if (a->size <= a->length) {
         printf("Insertion is not possible(Array is already full) \n");
@@ -175,34 +175,34 @@ void insert(struct Array *a, int position, int element) {
     }
     // Move elements from index "position - 1" to "length"
     for (int i = a->length; i >= position; i--)
-        a->A[i] = a->A[i - 1];
+        a->A [i] = a->A [i - 1];
     // Insert at index "position - 1"
-    a->A[position - 1] = element;
+    a->A [position - 1] = element;
     // Length of the array will be increased
     a->length++;
 }
 
-void delete(struct Array *a, int position) {
+void delete(struct Array* a, int position) {
     for (int i = position - 1; i < a->length; i++)
-        a->A[i] = a->A[i + 1];
+        a->A [i] = a->A [i + 1];
     a->length--;
 }
 
-int linear_search(struct Array *a, int key) {
+int linear_search(struct Array* a, int key) {
     for (int i = 0; i < a->length; i++) {
-        if (key == a->A[i])
+        if (key == a->A [i])
             return i;
     }
     return -1;
 }
 
-int binary_search(struct Array *a, int key) {
+int binary_search(struct Array* a, int key) {
     int low = 0, high = a->length - 1;
     while (low <= high) {
         int mid = high + (low - high) / 2;
-        if (a->A[mid] == key)
+        if (a->A [mid] == key)
             return mid;
-        else if (a->A[mid] > key)
+        else if (a->A [mid] > key)
             high = mid - 1;
         else
             low = mid + 1;
@@ -210,31 +210,31 @@ int binary_search(struct Array *a, int key) {
     return -1;
 }
 
-void reverse_array(struct Array *a) {
+void reverse_array(struct Array* a) {
     int first_index = 0;
     int last_index = a->length - 1;
     // Swap first_index with last_index
     while (first_index < last_index) {
-        swap(&a->A[first_index], &a->A[last_index]);
+        swap(&a->A [first_index], &a->A [last_index]);
         first_index++;
         last_index--;
     }
 }
 
-void rearrange_negatives(struct Array *a) {
+void rearrange_negatives(struct Array* a) {
     // Move negative elements left
     int first_index = 0;
     int last_index = a->length - 1;
     while (first_index < last_index) {
         // Move first_index until it finds a positive number
-        while (a->A[first_index] < 0)
+        while (a->A [first_index] < 0)
             first_index++;
         // Move last_index until it finds a positive number
-        while (a->A[last_index] > 0)
+        while (a->A [last_index] > 0)
             last_index--;
         // Swap them
         if (first_index < last_index)
-            swap(&a->A[first_index], &a->A[last_index]);
+            swap(&a->A [first_index], &a->A [last_index]);
     }
 }
 

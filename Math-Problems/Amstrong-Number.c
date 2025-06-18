@@ -9,9 +9,9 @@ For example, 371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371.
 
 int power(int n, int power) {
 	int result = 1;
-	for(int i=0; i<power; i++) {
+	for (int i = 0; i < power; i++) {
 		result *= n;
-	} 
+	}
 	return result;
 }
 
@@ -29,7 +29,7 @@ bool is_armstrong(int n) {
 		n_copy_2 /= 10;
 		i++;
 	}
-	
+
 	if (result == n)
 		return true;
 	return false;

@@ -28,13 +28,13 @@ double taylor_series_e_honer_rule(int x, int n) {
     // = 1 + x/1 [1 + x/2 [1 + x/3 [1 + x/4 + ...]]]
     // Thus we can reduce the multiplication by n, & thus time complexity become O(n)
     static double r = 1;
-    if(n == 0)
+    if (n == 0)
         return r;
     else {
         // r = (1 + x/n) * r 
         // Here (x/n) returns int value, since both is integer and then multiplied by 2
-        r = (1 + x * r/n);      
-        return taylor_series_e_honer_rule(x, n-1);
+        r = (1 + x * r / n);
+        return taylor_series_e_honer_rule(x, n - 1);
     }
 }
 

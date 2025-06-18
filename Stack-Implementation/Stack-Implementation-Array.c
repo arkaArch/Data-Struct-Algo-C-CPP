@@ -2,40 +2,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Stack{
+struct Stack {
     int size;
     int top;
-    int *arr;
+    int* arr;
 };
 
 
-void top(struct Stack *st) {
+void top(struct Stack* st) {
     // the top most element of the stack
-    if(st->top == -1) {
+    if (st->top == -1) {
         printf("Stack is empty.\n");
         return;
     }
-    printf("Top element: %d\n", st->arr[st->top - 1]);
+    printf("Top element: %d\n", st->arr [st->top - 1]);
 }
 
-void is_empty(struct Stack *st) {
-    if(st->top == -1) {
+void is_empty(struct Stack* st) {
+    if (st->top == -1) {
         printf("Stack is empty.\n");
         return;
     }
     printf("Stack is not empty.\n");
 }
 
-void is_full(struct Stack *st) {
-    if(st->top == st->size - 1) {
+void is_full(struct Stack* st) {
+    if (st->top == st->size - 1) {
         printf("Stack is full.\n");
         return;
     }
     printf("Stack is not full.\n");
 }
 
-void push(struct Stack *st) {
-    if(st->top == st->size - 1) {
+void push(struct Stack* st) {
+    if (st->top == st->size - 1) {
         printf("Stack Overflow.\n");
         return;
     }
@@ -43,41 +43,41 @@ void push(struct Stack *st) {
     printf("Enter the element to be added onto the stack: ");
     scanf("%d", &element);
     st->top += 1;
-    st->arr[st->top] = element;
+    st->arr [st->top] = element;
 }
 
-void pop(struct Stack *st) {
-    if(st->top == -1) {
+void pop(struct Stack* st) {
+    if (st->top == -1) {
         printf("Stack Underflow\n");
         return;
     }
-    printf("Popped element %d\n", st->arr[st->top]);
+    printf("Popped element %d\n", st->arr [st->top]);
     st->top -= 1;
 }
 
-void peek(struct Stack *st) {
+void peek(struct Stack* st) {
     int pos;
     printf("Enter the position: ");
     scanf("%d", &pos);
     // Calculate the index of array with respect to position of stack
     int index = st->top - pos + 1;
-    if(index < 0) {
+    if (index < 0) {
         printf("Position is invalid\n");
         return;
     }
-    printf("Element at position %d is %d\n", pos, st->arr[index]);
+    printf("Element at position %d is %d\n", pos, st->arr [index]);
 }
 
 int main() {
     struct Stack stack;
     printf("Enter the size of the stack: ");
     scanf("%d", &stack.size);
-    stack.arr = (int *)malloc(sizeof(int) * stack.size);
+    stack.arr = (int*)malloc(sizeof(int) * stack.size);
     // Since the stack is empty now so
     stack.top = -1;
 
     int choice;
-    while(1) {
+    while (1) {
         printf("1. Top element of the stack.\n");
         printf("2. Check if stack is empty.\n");
         printf("3. Check if stack is full.\n");
@@ -88,8 +88,8 @@ int main() {
 
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        
-        switch(choice) {
+
+        switch (choice) {
             case 1: top(&stack);
                 break;
             case 2: is_empty(&stack);

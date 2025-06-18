@@ -3,27 +3,27 @@
 
 struct Node {
     int data;
-    struct Node *prev;
-    struct Node *next;
+    struct Node* prev;
+    struct Node* next;
 };
 
-void traverse_list(struct Node *head) {
-    if(head == NULL) {
+void traverse_list(struct Node* head) {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    struct Node *current = head;
+    struct Node* current = head;
     do {
         printf("%d ", current->data);
         current = current->next;
-    } while(current != head);
+    } while (current != head);
     printf("\n");
 }
 
-struct Node *insert_at_begining(struct Node *head, int item) {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+struct Node* insert_at_begining(struct Node* head, int item) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = item;
-    if(head == NULL) {
+    if (head == NULL) {
         temp->next = temp;
         temp->prev = temp;
         return temp;
@@ -41,13 +41,13 @@ struct Node *insert_at_begining(struct Node *head, int item) {
 /* insert_at_end is same as insert_at_begining, just return head instead of temp */
 
 int main() {
-    struct Node *first = (struct Node *)malloc(sizeof(struct Node));
+    struct Node* first = (struct Node*)malloc(sizeof(struct Node));
     first->data = 10;
-    struct Node *second = (struct Node *)malloc(sizeof(struct Node));
+    struct Node* second = (struct Node*)malloc(sizeof(struct Node));
     second->data = 20;
-    struct Node *third = (struct Node *)malloc(sizeof(struct Node));
+    struct Node* third = (struct Node*)malloc(sizeof(struct Node));
     third->data = 30;
-    struct Node *fourth = (struct Node *)malloc(sizeof(struct Node));
+    struct Node* fourth = (struct Node*)malloc(sizeof(struct Node));
     fourth->data = 40;
 
     first->prev = fourth;
@@ -55,10 +55,10 @@ int main() {
 
     second->prev = first;
     second->next = third;
-    
+
     third->prev = second;
     third->next = fourth;
-    
+
     fourth->prev = third;
     fourth->next = first;
 

@@ -6,7 +6,7 @@
 
 
 void array_stl() {
-    std::array<int, 4> arr = {6, 8, 3, 4};
+    std::array<int, 4> arr = { 6, 8, 3, 4 };
     std::cout << "Is array empty: " << arr.empty() << std::endl;
     std::cout << "Element at index-2: " << arr.at(2) << std::endl;
     std::cout << "First and last element: " << arr.front() << " " << arr.back() << std::endl;
@@ -14,15 +14,15 @@ void array_stl() {
 
 
 void vector_stl() {
-    std::vector<int> v = {6, 8, 3, 4};
+    std::vector<int> v = { 6, 8, 3, 4 };
     // All the array operations have shown above is applicable in vectors
-    
+
     // An iterator in C++ is a pointer-like object that points to an element of the STL container.
     std::vector<int>::iterator first = v.begin();
     auto last = v.end();    // Automatically assign variable type
-    while(first < last) {
+    while (first < last) {
         std::cout << *first << " ";
-        first ++;
+        first++;
     }
     std::cout << "\n";
 
@@ -48,10 +48,10 @@ void stack_stl() {
     s.push("rat");
 
     // Print from the last element
-    while(!s.empty()) {
+    while (!s.empty()) {
         std::cout << s.top() << " ";
         s.pop();
-    } 
+    }
     std::cout << std::endl;
 }
 

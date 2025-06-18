@@ -12,7 +12,7 @@
 class Node {
 public:
     int data;
-    Node *link;
+    Node* link;
     Node(int data) {
         this->data = data;
         link = nullptr;
@@ -21,36 +21,38 @@ public:
 
 class Priority_Queue {
 public:
-    Node *first_addresses[PRIORITY_LIMIT] = { nullptr };
-    
+    Node* first_addresses [PRIORITY_LIMIT] = { nullptr };
+
     void enqueue(int element, int priority) {
         // Create a new node
-        Node *newNode = new Node(element);
+        Node* newNode = new Node(element);
         newNode->data = element;
         // Check if the queue is empty
-        if(!first_addresses[priority - 1]) {
-            first_addresses[priority - 1] = newNode;
-        } else {
+        if (!first_addresses [priority - 1]) {
+            first_addresses [priority - 1] = newNode;
+        }
+        else {
             // find last node
-            Node *current = first_addresses[priority - 1];
-            while(current->link)
+            Node* current = first_addresses [priority - 1];
+            while (current->link)
                 current = current->link;
             current->link = newNode;
         }
     }
-    
+
     void dequeue() {
         // Dequeue is done by priority in FIFO fashion. If queue with priority 1
         // is empty only then it removes the element of queue with priority 2. 
         int priority = 0;
-        while(priority < PRIORITY_LIMIT) {
-            if(first_addresses[priority]) {     // If the queue is not empty
-                Node *temp = first_addresses[priority];
-                first_addresses[priority] = temp->link;
+        while (priority < PRIORITY_LIMIT) {
+            if (first_addresses [priority]) {     // If the queue is not empty
+                Node* temp = first_addresses [priority];
+                first_addresses [priority] = temp->link;
                 std::cout << "Deleted " << temp->data << " from queue " << priority + 1 << "\n";
                 delete temp;
                 break;
-            } else {
+            }
+            else {
                 priority++;
             }
         }
@@ -58,23 +60,24 @@ public:
 
     void display() {
         int priority = 1;
-        while(priority <= PRIORITY_LIMIT) {
+        while (priority <= PRIORITY_LIMIT) {
             display_node(priority);
-            priority ++;
+            priority++;
         }
     }
 
     void display_node(int priority) {
-        Node *temp = first_addresses[priority - 1];
+        Node* temp = first_addresses [priority - 1];
         std::cout << "Queue_" << priority << ": ";
         // If first_address of the queue is not nullptr
         // Then traverse the node and print data
-        if(temp) {
-            while(temp) {
+        if (temp) {
+            while (temp) {
                 std::cout << temp->data << " ";
                 temp = temp->link;
             }
-        } else {
+        }
+        else {
             std::cout << "Empty";
         }
         std::cout << std::endl;
@@ -99,6 +102,6 @@ int main() {
 
     std::cout << "------------------" << std::endl;
     pq.display();
-    
+
     return 0;
 }

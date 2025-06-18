@@ -6,13 +6,14 @@ using namespace std;
 vector<int> wavePrint(vector<vector<int>> arr, int nRows, int mCols) {
     // So if column number is even it goes downward and if odd it goes upward
     vector<int> result;
-    for(int i = 0; i < mCols; i++) {
-        if(i % 2 == 0) {
-            for(int j = 0; j < nRows; j++)
-                result.push_back(arr[j][i]);
-        } else
-            for(int j = nRows - 1; j >= 0; j--)
-                result.push_back(arr[j][i]);
+    for (int i = 0; i < mCols; i++) {
+        if (i % 2 == 0) {
+            for (int j = 0; j < nRows; j++)
+                result.push_back(arr [j][i]);
+        }
+        else
+            for (int j = nRows - 1; j >= 0; j--)
+                result.push_back(arr [j][i]);
     }
     return result;
 }
@@ -22,11 +23,11 @@ int main() {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12}
-    };   
+    };
     vector<int> sineWave = wavePrint(v, 3, 4);
 
     // Print wave vector
-    for(int element : sineWave)
+    for (int element : sineWave)
         cout << element << " ";
     cout << endl;
 

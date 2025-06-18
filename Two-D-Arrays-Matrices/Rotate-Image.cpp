@@ -10,18 +10,18 @@ void rotate(vector<vector<int>>& matrix) {
     // n-1 th row with 1st row, n-2 th row with 2nd row, and so on.
     int n = matrix.size() - 1;
     // Change from 0 to n/2 th row
-    for(int i = 0; i <= n/2; i ++) {
+    for (int i = 0; i <= n / 2; i++) {
         // Swap each element
-        for(int j = 0; j <= n; j++)
-            swap(matrix[i][j], matrix[n-i][j]);
+        for (int j = 0; j <= n; j++)
+            swap(matrix [i][j], matrix [n - i][j]);
     }
 
     // Now swap row with column, i.e nth row with nt column
     // n-1 th row with n-1 th column and so on untill 1st row
     // with 1st column. matrix[k][k] for k <= n are already sorted. 
-    for(int i = n; n >= 0; n--) {
-        for(int j = 0; j < n; j++)
-            swap(matrix[n][j], matrix[j][n]);
+    for (int i = n; n >= 0; n--) {
+        for (int j = 0; j < n; j++)
+            swap(matrix [n][j], matrix [j][n]);
     }
 }
 
@@ -33,9 +33,9 @@ int main() {
         {15,14,12,16}
     };
     rotate(matrix);
-    for(int i = 0; i < matrix.size(); i++) {
-        for(int j = 0; j < matrix[0].size(); j++)
-            cout << matrix[i][j] << "\t";
+    for (int i = 0; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix [0].size(); j++)
+            cout << matrix [i][j] << "\t";
         cout << endl;
     }
     return 0;

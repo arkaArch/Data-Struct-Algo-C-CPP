@@ -14,15 +14,15 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
     // Now if the current value is less than target we have to move downward since top
     // values are minimum in the row.
     int row = 0;
-    int col = matrix[0].size() - 1;
-    
-    while(row < matrix.size() && col >= 0) {
-        if(matrix[row][col] == target)
+    int col = matrix [0].size() - 1;
+
+    while (row < matrix.size() && col >= 0) {
+        if (matrix [row][col] == target)
             return true;
-        else if(matrix[row][col] > target)
-            col --;
+        else if (matrix [row][col] > target)
+            col--;
         else
-            row ++;
+            row++;
     }
     return false;
 }
@@ -41,4 +41,4 @@ int main() {
 
     return 0;
 }
-         
+
