@@ -81,7 +81,7 @@ Let's number of nodes = 3. So the shapes are
 ```
 So, T(3) = 5 <br/>
 The formula is $T(n) = \frac{^{2n}C_n}{n+1}$. Here T(n)/Fomrmula is called `Catalan Number`.<br>
-So, for $T(4) = \frac{^{8}C_4}{4+1} = \frac{\frac{8!}{4!*(8-4)!}}{5} = \frac{\frac{8*7*6*5}{4*3*2}}{5} = 14$
+So, for $$T(4) = \frac{^{8}C_4}{4+1} = \frac{\frac{8!}{4!*(8-4)!}}{5} = \frac{\frac{8*7*6*5}{4*3*2}}{5} = 14$$
 
 We have another fomula for generate catalan number. We know that T(0) = 1, T(1) = 1, T(2) = 2, T(3) = 5 <br/>
 Now, T(4) = T(0)*T(3) + T(1)*T(2) + T(2)*T(1) + T(3)*T(0) = 5 + 2 + 2 + 5 = 14 <br/>
