@@ -1,4 +1,4 @@
-### Minimum & maxium number of nodes if height is given:
+### Minimum & maximum number of nodes if height is given:
 **Height 1**:
 ```
        O                 O
@@ -39,3 +39,28 @@ Max height:     O       Min height:   / \
                /                     O   O
               O
 ```
+
+**Note**: There is a relationship between external and internal nodes in binary tree. `deg(0) = deg(2) + 1`. That is terminal(external) nodes always '+1' than internal nodes having two children. <br/>
+This can be written as `external nodes = internal nodes + 1` for `strictly binary trees`, since there is no nodes with `deg(1)`.
+
+<br/>
+
+---
+<br/>
+
+### Minimum & maximum number of nodes if height is given in strict binary trees:
+**Height 2**:
+```
+         O                  O
+        / \               /   \
+Min:   O   O       Max:  O     O
+      / \               / \   / \
+     O   O             O   O O   O
+```
+Minimum number of nodes: 5 & maximum number of nodes: 7
+For height 3 if we draw we can see minimum number of nodes = 7 and maximum number of nodes = 15 <br/>
+So, maximum-nodes are same as above, i.e $2^{h+1} - 1$.
+And `minimum-nodes` = $2*h + 1$
+
+So we can make the fomula of `maximum` and `minimum height` if nodes are given: <br/>
+`minimum-height` = $\log_2(n+1) - 1$ and `maximum-height` = $(n-1)/2$

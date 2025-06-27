@@ -60,19 +60,20 @@
 
 ## Binary Tree:
 ```
-            A              A                    A
-           / \            /                      \   
-          /   \          B   -> Left Skewed       B    -> Right skewed
-         B     C        /       Binary Tree        \      Binary Tree
-        / \   / \      C                            C
+            A                              A                    A
+           / \                            /                      \   
+          /   \   -> Strict binary       B   -> Left Skewed       B    -> Right skewed
+         B     C     Tree               /       Binary Tree        \      Binary Tree
+        / \   / \                      C                            C
        D   E  F  G
 ```
-A tree of degree two, i.e a tree where every node can have maximum two children is called binary tree.
+A tree of degree two, i.e. a tree where every node can have maximum two children is called binary tree.<br/>
+`Strict binary trees` have nodes with `deg(0)` or `deg(2)`. No `deg(1)` nodes are present in strict binary trees.
 
 
 ### Number of different shaped binary trees from given number of unlebelled nodes:
 Let's number of nodes = 3. So the shapes are
-```$T(n) = \sum_{i=0}^{n}T(i-1) * T(n - i)$
+```
      O    O    O    O    O    
     /    /    / \    \    \
    O    O    O   O    O    O
@@ -88,9 +89,24 @@ Now, T(4) = T(0)*T(3) + T(1)*T(2) + T(2)*T(1) + T(3)*T(0) = 5 + 2 + 2 + 5 = 14 <
 So, `Catalan number`, $T(n) = \sum_{i=0}^{n}T(i-1) * T(n - i)$
 
 
-The number of binary tree with maximum height(2) for 3 nodes $= 2^{3-1} = 4$ <br/>
-The number of binary tree with maximum height(3) for 4 nodes $= 2^{4-1} = 8$
-
+> The number of binary tree with maximum height(2) for 3 nodes $= 2^{3-1} = 4$ <br/>
+> The number of binary tree with maximum height(3) for 4 nodes $= 2^{4-1} = 8$
+```
+     O   O  O   O    
+    /   /    \   \
+   O   O      O   O        For 3 nodes and height 2
+  /     \    /     \
+ O       O  O       O
+```
+```
+        O   O  O   O      O    O   O   O    
+       /   /  /   /        \    \   \   \
+      O   O  O   O          O    O   O   O     For 4 nodes and height 3
+     /   /    \   \        /    /     \   \
+    O   O      O   O      O    O       O   O
+   /     \    /     \    /      \     /     \
+  O       O  O       O  O        O   O       O
+```
 
 ### Number of different shaped binary trees from given number of lebelled nodes:
 Let's say number of nodes is 3 and the nodes are `A`, `B` and `C`. <br/> 
