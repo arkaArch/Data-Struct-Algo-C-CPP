@@ -23,7 +23,6 @@ void create_binary_tree() {
     enqueue(&q, root);
 
     Node* p_parent, * p_child;
-
     // Now dequeue the adress and asks for left and right child
     while (!is_empty(&q)) {
         p_parent = dequeue(&q);
@@ -42,11 +41,11 @@ void create_binary_tree() {
             enqueue(&q, p_child);
         }
 
-        // Create left childe
+        // Create right child
         printf("Enter value of right child of %d (if not present enter -1): ", p_parent->data);
         scanf("%d", &value);
         if (value != -1) {
-            // Create left child node
+            // Create right child node
             p_child = (Node*)malloc(sizeof(Node));
             p_child->data = value;
             p_child->left_child = p_child->right_child = NULL;
