@@ -50,30 +50,3 @@ void inorder(Node* ptr) {
         }
     }
 }
-
-void postorder(Node* ptr) {
-    // if node is not null
-    //    Store address to the stack, go to left child
-    // if null
-    //    pop out the parent address from stack go to right child
-    std::stack<Node*> st;
-    long temp;
-    while (ptr || !st.empty()) {
-        if (ptr) {
-            st.push(ptr);
-            ptr = ptr->l_child;
-        }
-        else {
-            temp = (int)st.top();
-            st.pop();
-            if (temp > 0) {
-                st.push((Node*)(-temp));
-                ptr = ((Node*)temp)->r_child;
-            }
-            else {
-                std::cout << ((Node*)temp)->data << " ";
-                ptr = nullptr;
-            }
-        }
-    }
-}
