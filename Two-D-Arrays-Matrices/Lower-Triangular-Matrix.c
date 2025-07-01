@@ -28,72 +28,73 @@ So, implementing row-major mapping is easy
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
-    int* lower_triangular_matrix, row, choice;
-    printf("Enter the row/column number of the matrix: ");
-    scanf("%d", &row);
-    int total_element = (row * (row + 1)) / 2;
-    lower_triangular_matrix = (int*)malloc(sizeof(int) * total_element);
+int main() {
+  int *lower_triangular_matrix, row, choice;
+  printf("Enter the row/column number of the matrix: ");
+  scanf("%d", &row);
+  int total_element = (row * (row + 1)) / 2;
+  lower_triangular_matrix = (int *)malloc(sizeof(int) * total_element);
 
-    while (1) {
-        printf("1. Create matrix\n");
-        printf("2. Set a value\n");
-        printf("3. Get a value\n");
-        printf("4. Display matrix\n");
-        printf("5. Quit\n");
+  while (1) {
+    printf("1. Create matrix\n");
+    printf("2. Set a value\n");
+    printf("3. Get a value\n");
+    printf("4. Display matrix\n");
+    printf("5. Quit\n");
 
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
 
-        switch (choice) {
-            case 1:
-                // Create matrix
-                for (int i = 0; i < total_element; i++) {
-                    printf("Enter the non zero element: ");
-                    scanf("%d", &lower_triangular_matrix [i]);
-                }
-                break;
+    switch (choice) {
+    case 1:
+      // Create matrix
+      for (int i = 0; i < total_element; i++) {
+        printf("Enter the non zero element: ");
+        scanf("%d", &lower_triangular_matrix[i]);
+      }
+      break;
 
-            case 2:
-                // Set values in matrix
-                int r, c, element;
-                printf("Enter row column: ");
-                scanf("%d %d", &r, &c);
-                printf("Enter the element: ");
-                scanf("%d", &element);
-                if (r >= c)
-                    lower_triangular_matrix [((r * (r - 1)) / 2) + (c - 1)] = element;
-                break;
+    case 2:
+      // Set values in matrix
+      int r, c, element;
+      printf("Enter row column: ");
+      scanf("%d %d", &r, &c);
+      printf("Enter the element: ");
+      scanf("%d", &element);
+      if (r >= c)
+        lower_triangular_matrix[((r * (r - 1)) / 2) + (c - 1)] = element;
+      break;
 
-            case 3:
-                // Get values from matrix
-                printf("Enter row and column: ");
-                scanf("%d %d", &r, &c);
-                if (r >= c)
-                    printf("%d \n", lower_triangular_matrix [((r * (r - 1)) / 2) + (c - 1)]);
-                else
-                    printf("0 \n");
-                break;
+    case 3:
+      // Get values from matrix
+      printf("Enter row and column: ");
+      scanf("%d %d", &r, &c);
+      if (r >= c)
+        printf("%d \n", lower_triangular_matrix[((r * (r - 1)) / 2) + (c - 1)]);
+      else
+        printf("0 \n");
+      break;
 
-            case 4:
-                // Display matrix
-                int k = 0;   // Index for the array, which stores non-zero elements
-                for (int i = 0; i < row; i++) {
-                    for (int j = 0; j < row; j++) {
-                        if (i >= j)
-                            printf("%d ", lower_triangular_matrix [k++]);
-                        else
-                            printf("0 ");
-                    }
-                    printf("\n");
-                }
-                break;
-
-            case 5:
-                // Exit from the program
-                exit(1);
-            default:
-                printf("Wrong input \n");
+    case 4:
+      // Display matrix
+      int k = 0; // Index for the array, which stores non-zero elements
+      for (int i = 0; i < row; i++) {
+        for (int j = 0; j < row; j++) {
+          if (i >= j)
+            printf("%d ", lower_triangular_matrix[k++]);
+          else
+            printf("0 ");
         }
+        printf("\n");
+      }
+      break;
+
+    case 5:
+      // Exit from the program
+      exit(1);
+    default:
+      printf("Wrong input \n");
     }
+  }
+  return 0;
 }
